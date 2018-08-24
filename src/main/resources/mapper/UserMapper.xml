@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.self.mapper.UserMapper" >
+
+    <select id="findUser" resultType="com.self.domain.User">
+    select id,username,password from user
+  </select>
+
+    <insert id="addUser" parameterType="com.self.domain.User">
+            insert into user(username,password) values(#{username},#{password});
+    </insert>
+
+    <update id="updateUser" parameterType="int">
+            update user set password = '987' where id = #{id}
+    </update>
+
+    <delete id="deleteUser" parameterType="int">
+            delete from user where id = #{id}
+    </delete>
+</mapper>
